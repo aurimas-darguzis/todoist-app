@@ -14,9 +14,6 @@ export const Header = () => {
               +
             </li>
             <li data-testid='dark-mode-action' className='settings__darkmode'>
-              -
-            </li>
-            <li>
               <FaPizzaSlice />
             </li>
           </ul>

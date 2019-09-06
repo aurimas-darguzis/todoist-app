@@ -48,7 +48,7 @@ $generic-bg: #db4c3f;
   display: flex;
   align-items: center;
 
-  @if $val-align !=center {
+  @if $va-align !=center {
     justify-content: left;
   }
 
