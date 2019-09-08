@@ -9,9 +9,8 @@ import { TaskDate } from './TaskDate';
 export const AddTask = ({
   showAddTaskMain = true,
   shouldShowMain = false,
-  showdQuickAddTask,
-  setShowQuickAddTask,
-  showQuickAddTask
+  showQuickAddTask,
+  setShowQuickAddTask
 }) => {
   const [task, setTask] = useState('');
   const [taskDate, setTaskDate] = useState('');
@@ -24,26 +23,27 @@ export const AddTask = ({
 
   const addTask = () => {
     const projectId = project || selectedProject;
-    let collateDate = '';
+    let collatedDate = '';
 
     if (projectId === 'TODAY') {
-      collateDate = moment().format('DD/MM/YYYY');
+      collatedDate = moment().format('DD/MM/YYYY');
     } else if (projectId === 'NEXT_7') {
-      collateDate = moment()
+      collatedDate = moment()
         .add(7, 'days')
         .format('DD/MM/YYYY');
     }
+
     return (
       task &&
       projectId &&
       firebase
         .firestore()
-        .collection('task')
+        .collection('tasks')
         .add({
+          archived: false,
           projectId,
           task,
-          archived: false,
-          date: collateDate || taskDate,
+          date: collatedDate || taskDate,
           userId: 'djA45kaeOP1sd'
         })
         .then(() => {
@@ -57,7 +57,7 @@ export const AddTask = ({
 
   return (
     <div
-      className={showdQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+      className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
       data-testid='add-task-comp'
     >
       {showAddTaskMain && (
@@ -71,9 +71,9 @@ export const AddTask = ({
         </div>
       )}
 
-      {(showMain || showdQuickAddTask) && (
+      {(showMain || showQuickAddTask) && (
         <div className='add-task__main' data-testid='add-task-main'>
-          {showdQuickAddTask && (
+          {showQuickAddTask && (
             <>
               <div data-testid='quick-add-task'>
                 <h2 className='header'>Quick Add Task</h2>
