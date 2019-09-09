@@ -38,7 +38,7 @@ export const AddTask = ({
       projectId &&
       firebase
         .firestore()
-        .collection('task')
+        .collection('tasks')
         .add({
           projectId,
           task,
