@@ -42,6 +42,7 @@ export const AddProject = ({ shouldShow = false }) => {
             className='add-project__submit'
             type='button'
             onClick={() => addProject()}
+            onKeyDown={() => addProject()}
             data-testid='add-project-submit'
           >
             Add project
@@ -50,6 +51,9 @@ export const AddProject = ({ shouldShow = false }) => {
             data-testid='hide-project-overlay'
             className='add-project__cancel'
             onClick={() => setShow(false)}
+            onKeyDown={() => setShow(false)}
+            role='button'
+            tabIndex={0}
           >
             Cancel
           </span>
@@ -60,6 +64,9 @@ export const AddProject = ({ shouldShow = false }) => {
         data-testid='add-project-action'
         className='add-project__text'
         onClick={() => setShow(!show)}
+        onKeyDown={() => setShow(!show)}
+        role='button'
+        tabIndex={0}
       >
         Add Project
       </span>
