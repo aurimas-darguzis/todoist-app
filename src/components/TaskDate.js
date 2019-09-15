@@ -8,11 +8,11 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
       <ul className='task-date__list'>
         <li>
           <div
+            data-testid='task-date-today'
             onClick={() => {
               setShowTaskDate(false);
               setTaskDate(moment().format('DD/MM/YYYY'));
             }}
-            data-testid='task-date-overlay'
           >
             <span>
               <FaSpaceShuttle />

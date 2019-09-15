@@ -24,6 +24,7 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
+      "!src/firebase.js",
       "!src/hooks/*.js",
       "!src/context/*.js"
     ],
